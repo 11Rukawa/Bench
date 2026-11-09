@@ -1,0 +1,575 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans), "PingFang SC", "Source Han Sans SC", "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --font-mono: var(--font-geist-mono), "Source Han Mono SC", "Noto Sans Mono CJK SC", ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+  --color-mention: var(--mention);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(0.982 0.004 85);
+  --foreground: oklch(0.23 0.012 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.23 0.012 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.23 0.012 60);
+  --primary: oklch(0.26 0.014 60);
+  --primary-foreground: oklch(0.98 0.004 85);
+  --secondary: oklch(0.955 0.005 85);
+  --secondary-foreground: oklch(0.3 0.014 60);
+  --muted: oklch(0.955 0.005 85);
+  --muted-foreground: oklch(0.52 0.012 60);
+  --accent: oklch(0.945 0.008 85);
+  --accent-foreground: oklch(0.23 0.012 60);
+  --destructive: oklch(0.55 0.17 28);
+  --border: oklch(0.9 0.006 85);
+  --input: oklch(0.88 0.008 85);
+  --ring: oklch(0.6 0.08 255);
+  --mention: oklch(0.5 0.15 255);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.7rem;
+  --sidebar: oklch(0.966 0.005 85);
+  --sidebar-foreground: oklch(0.23 0.012 60);
+  --sidebar-primary: oklch(0.26 0.014 60);
+  --sidebar-primary-foreground: oklch(0.98 0.004 85);
+  --sidebar-accent: oklch(0.935 0.007 85);
+  --sidebar-accent-foreground: oklch(0.23 0.012 60);
+  --sidebar-border: oklch(0.9 0.006 85);
+  --sidebar-ring: oklch(0.6 0.08 255);
+}
+
+.dark {
+  --background: oklch(0.175 0.006 265);
+  --foreground: oklch(0.94 0.004 265);
+  --card: oklch(0.215 0.007 265);
+  --card-foreground: oklch(0.94 0.004 265);
+  --popover: oklch(0.23 0.008 265);
+  --popover-foreground: oklch(0.94 0.004 265);
+  --primary: oklch(0.92 0.004 265);
+  --primary-foreground: oklch(0.2 0.006 265);
+  --secondary: oklch(0.26 0.008 265);
+  --secondary-foreground: oklch(0.94 0.004 265);
+  --muted: oklch(0.25 0.008 265);
+  --muted-foreground: oklch(0.68 0.01 265);
+  --accent: oklch(0.27 0.01 265);
+  --accent-foreground: oklch(0.94 0.004 265);
+  --destructive: oklch(0.68 0.17 25);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.65 0.1 255);
+  --mention: oklch(0.75 0.12 255);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.195 0.007 265);
+  --sidebar-foreground: oklch(0.94 0.004 265);
+  --sidebar-primary: oklch(0.92 0.004 265);
+  --sidebar-primary-foreground: oklch(0.2 0.006 265);
+  --sidebar-accent: oklch(0.25 0.008 265);
+  --sidebar-accent-foreground: oklch(0.94 0.004 265);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.65 0.1 255);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--mention) 25%, transparent);
+  }
+  html {
+    @apply font-sans;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklch, var(--foreground) 18%, transparent) transparent;
+  }
+}
+/*
+ * Frosted glass over slow colored light.
+ *  .ambient  the five agents' colors drifting behind everything
+ *  .frost    panels: blur + tint
+ *  .raised   floating controls (top bar, composer): frost plus a lit rim and shadow
+ *  .pill     a small control sitting on frosted glass: light only, no blur of its own
+ */
+:root {
+  --glass-tint: oklch(1 0 0 / 0.55);
+  --glass-tint-2: oklch(1 0 0 / 0.3);
+  --glass-rim: oklch(1 0 0 / 0.95);
+  --glass-rim-soft: oklch(1 0 0 / 0.18);
+  --glass-shadow: oklch(0.3 0.03 265 / 0.16);
+  --frost-tint: oklch(0.985 0.004 85 / 0.46);
+  --panel-rim: oklch(1 0 0 / 0.9);
+  --panel-rim-low: oklch(1 0 0 / 0.5);
+  --panel-edge: oklch(0.3 0.02 265 / 0.06);
+  --panel-glow: oklch(0.75 0.08 60 / 0.35);
+  --ambient-dot: oklch(0.3 0.02 265 / 0.13);
+  --ambient-alpha: 0.5;
+}
+
+.dark {
+  --glass-tint: oklch(0.26 0.01 265 / 0.55);
+  --glass-tint-2: oklch(0.2 0.01 265 / 0.35);
+  --glass-rim: oklch(1 0 0 / 0.42);
+  --glass-rim-soft: oklch(1 0 0 / 0.06);
+  --glass-shadow: oklch(0 0 0 / 0.45);
+  --frost-tint: oklch(0.2 0.007 265 / 0.42);
+  --panel-rim: oklch(1 0 0 / 0.28);
+  --panel-rim-low: oklch(1 0 0 / 0.12);
+  --panel-edge: oklch(1 0 0 / 0.03);
+  --panel-glow: oklch(0.72 0.1 55 / 0.16);
+  --ambient-dot: oklch(1 0 0 / 0.08);
+  --ambient-alpha: 0.32;
+}
+
+.ambient {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--background);
+}
+
+.ambient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--ambient-dot) 1px, transparent 1.6px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 85%);
+}
+
+.ambient > span {
+  position: absolute;
+  width: 46vmax;
+  height: 46vmax;
+  border-radius: 50%;
+  opacity: var(--ambient-alpha);
+  background: radial-gradient(circle at center, var(--c) 0%, transparent 62%);
+  animation: ambient-drift 38s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes ambient-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(var(--dx), var(--dy), 0) scale(1.12); }
+  100% { transform: translate3d(calc(var(--dx) * -0.6), calc(var(--dy) * 0.8), 0) scale(0.94); }
+}
+
+.frost,
+.raised {
+  position: relative;
+  isolation: isolate;
+}
+
+.frost {
+  background: var(--frost-tint);
+}
+
+/*
+ * The blur lives on a pseudo-element, not the panel: an element with a
+ * backdrop-filter cuts off the backdrop for everything inside it, and the
+ * sliding glass in the roster would then refract an empty grey layer.
+ */
+.frost::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  -webkit-backdrop-filter: blur(22px) saturate(1.6);
+  backdrop-filter: blur(22px) saturate(1.6);
+  pointer-events: none;
+}
+
+.raised {
+  background: linear-gradient(160deg, var(--glass-tint), var(--glass-tint-2));
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  backdrop-filter: blur(16px) saturate(1.8);
+  box-shadow:
+    inset 0 1px 1px 0 var(--glass-rim-soft),
+    inset 0 -8px 16px -12px var(--glass-rim-soft),
+    0 12px 32px -12px var(--glass-shadow),
+    0 2px 6px -2px var(--glass-shadow);
+}
+
+/* The specular rim: bright where light hits (top left, bottom right), gone in between. */
+.raised::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--glass-rim) 0%,
+    var(--glass-rim-soft) 28%,
+    transparent 50%,
+    var(--glass-rim-soft) 72%,
+    var(--glass-rim) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+/*
+ * Dialogs get the same specular rim as the floating controls, a little
+ * softer, and a faint glow so they lift off the dimmed room. The side
+ * columns don't: rimmed and glowing, the two of them and the top bar read
+ * as walls closing in on the conversation.
+ */
+[data-slot="dialog-content"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    150deg,
+    var(--panel-rim) 0%,
+    var(--glass-rim-soft) 30%,
+    transparent 55%,
+    var(--glass-rim-soft) 80%,
+    var(--panel-rim-low) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+.frost {
+  box-shadow: inset 0 1px 0 0 var(--glass-rim-soft);
+}
+
+[data-slot="dialog-content"] {
+  box-shadow:
+    0 0 0 1px var(--panel-edge),
+    0 24px 64px -20px var(--glass-shadow),
+    0 0 48px -8px var(--panel-glow);
+}
+
+/*
+ * Sticky notes: the right column is a few notes stuck on the backdrop
+ * instead of one more panel. Each tone is a paper color; data-tilt leans it
+ * a little, and it straightens up while you work on it.
+ */
+.note {
+  --paper: oklch(0.96 0.07 95);
+  --paper-ink: oklch(0.3 0.04 80);
+  --paper-shade: oklch(0.45 0.06 80 / 0.22);
+  position: relative;
+  border-radius: 3px 3px 14px 3px;
+  background: linear-gradient(170deg, var(--paper), color-mix(in oklch, var(--paper) 88%, var(--paper-ink)));
+  color: var(--paper-ink);
+  box-shadow:
+    0 1px 1px var(--paper-shade),
+    0 10px 18px -12px var(--paper-shade);
+  rotate: var(--tilt, 0deg);
+  transition: rotate 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+
+.note:hover,
+.note:focus-within,
+.note[open] {
+  rotate: 0deg;
+  box-shadow:
+    0 1px 1px var(--paper-shade),
+    0 16px 28px -14px var(--paper-shade);
+}
+
+/* A strip of tape across the top. */
+.note::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 44px;
+  height: 12px;
+  translate: -50% 0;
+  rotate: -2deg;
+  background: oklch(1 0 0 / 0.5);
+  box-shadow: 0 0 0 1px oklch(0.5 0.02 80 / 0.08);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.note[data-tilt="a"] { --tilt: -1.4deg; }
+.note[data-tilt="b"] { --tilt: 1deg; }
+.note[data-tilt="c"] { --tilt: -0.6deg; }
+.note[data-tilt="d"] { --tilt: 1.6deg; }
+
+.note[data-tone="blue"] { --paper: oklch(0.94 0.045 235); --paper-ink: oklch(0.3 0.05 250); --paper-shade: oklch(0.4 0.06 250 / 0.22); }
+.note[data-tone="peach"] { --paper: oklch(0.94 0.06 55); --paper-ink: oklch(0.32 0.05 45); --paper-shade: oklch(0.45 0.07 45 / 0.22); }
+.note[data-tone="pink"] { --paper: oklch(0.94 0.05 10); --paper-ink: oklch(0.32 0.06 10); --paper-shade: oklch(0.45 0.07 10 / 0.22); }
+.note[data-tone="green"] { --paper: oklch(0.94 0.06 150); --paper-ink: oklch(0.3 0.05 155); --paper-shade: oklch(0.4 0.06 155 / 0.22); }
+
+/* At night the paper dims to a soft colored card so it doesn't glare. */
+.dark .note { --paper: oklch(0.36 0.05 90); --paper-ink: oklch(0.93 0.03 95); --paper-shade: oklch(0 0 0 / 0.5); }
+.dark .note[data-tone="blue"] { --paper: oklch(0.34 0.045 245); --paper-ink: oklch(0.93 0.02 240); }
+.dark .note[data-tone="peach"] { --paper: oklch(0.36 0.05 50); --paper-ink: oklch(0.94 0.03 55); }
+.dark .note[data-tone="pink"] { --paper: oklch(0.35 0.05 10); --paper-ink: oklch(0.94 0.03 10); }
+.dark .note[data-tone="green"] { --paper: oklch(0.34 0.045 155); --paper-ink: oklch(0.93 0.03 150); }
+.dark .note::before { background: oklch(1 0 0 / 0.08); }
+
+.note .text-muted-foreground {
+  color: color-mix(in oklch, var(--paper-ink) 62%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .note { transition: none; }
+}
+
+.pill {
+  background: linear-gradient(160deg, oklch(1 0 0 / 0.5), oklch(1 0 0 / 0.16));
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 0.7),
+    inset 0 0 0 1px oklch(1 0 0 / 0.25),
+    0 1px 3px -1px var(--glass-shadow);
+}
+
+.dark .pill {
+  background: linear-gradient(160deg, oklch(1 0 0 / 0.12), oklch(1 0 0 / 0.04));
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 0.16),
+    inset 0 0 0 1px oklch(1 0 0 / 0.07),
+    0 1px 3px -1px var(--glass-shadow);
+}
+
+/* Clickable capsules: brighten on hover, give under the press, and spring
+   back. No lift: a row that scrolls sideways clips anything that moves up. Works on frosted .pill chips and on filled, colored ones. */
+.chip {
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    scale 0.3s cubic-bezier(0.2, 0.9, 0.3, 1),
+    filter 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.chip:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.dark .chip:hover:not(:disabled) {
+  filter: brightness(1.2);
+}
+
+.chip:active:not(:disabled) {
+  transform: scale(0.95);
+  filter: brightness(0.94);
+  transition-duration: 0.06s;
+}
+
+.pill.chip:hover:not(:disabled) {
+  background: linear-gradient(160deg, oklch(1 0 0 / 0.75), oklch(1 0 0 / 0.3));
+}
+
+.dark .pill.chip:hover:not(:disabled) {
+  background: linear-gradient(160deg, oklch(1 0 0 / 0.18), oklch(1 0 0 / 0.07));
+}
+
+.chip:focus-visible {
+  outline: 2px solid color-mix(in oklch, var(--ring) 60%, transparent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip,
+  .chip:hover:not(:disabled),
+  .chip:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+/* Chat bubbles share one look: a thin rim and a faint halo in the author's
+   color (--halo); yours are filled deep blue. */
+.bubble {
+  --halo-color: var(--halo, var(--mention));
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 0.5),
+    inset 0 0 0 1px color-mix(in oklch, var(--halo-color) 22%, transparent),
+    0 0 14px -5px color-mix(in oklch, var(--halo-color) 30%, transparent),
+    0 1px 4px -2px var(--glass-shadow);
+}
+
+.dark .bubble {
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 0.08),
+    inset 0 0 0 1px color-mix(in oklch, var(--halo-color) 26%, transparent),
+    0 0 16px -5px color-mix(in oklch, var(--halo-color) 38%, transparent),
+    0 1px 4px -2px var(--glass-shadow);
+}
+
+.mine {
+  --halo: oklch(0.6 0.17 262);
+  background: linear-gradient(160deg, oklch(0.5 0.15 262), oklch(0.43 0.15 270));
+}
+
+.dark .mine {
+  background: linear-gradient(160deg, oklch(0.42 0.13 262), oklch(0.34 0.11 270));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient > span {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .frost,
+  .raised {
+    background: var(--card);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .frost::before {
+    display: none;
+  }
+}
+
+/* A seat still working on its reply: three dots that rise in turn, and a
+   sheen that slides across the bubble. */
+.typing {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.typing > i {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--halo, currentColor);
+  animation: typing-hop 1.2s ease-in-out infinite;
+}
+
+.typing > i:nth-child(2) { animation-delay: 0.15s; }
+.typing > i:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes typing-hop {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.bubble.working {
+  position: relative;
+  overflow: hidden;
+}
+
+.bubble.working::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, color-mix(in oklch, var(--halo-color) 14%, transparent) 50%, transparent 70%);
+  translate: -100% 0;
+  animation: working-sheen 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes working-sheen {
+  to { translate: 100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing > i { animation: none; opacity: 0.7; }
+  .bubble.working::after { animation: none; display: none; }
+}
+
+/* Writing the room summary: a sheen across the pill while it is being
+ * written, then a check that pops in and draws itself. */
+.summary-writing {
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-writing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, color-mix(in oklch, var(--color-emerald-500) 16%, transparent) 50%, transparent 70%);
+  translate: -100% 0;
+  animation: working-sheen 1.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.summary-check {
+  animation: summary-check-pop 0.45s cubic-bezier(0.34, 1.6, 0.64, 1) both;
+}
+
+.summary-check path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: summary-check-draw 0.35s 0.15s ease-out forwards;
+}
+
+@keyframes summary-check-pop {
+  from { scale: 0.3; opacity: 0; }
+  to { scale: 1; opacity: 1; }
+}
+
+@keyframes summary-check-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .summary-writing::after { animation: none; display: none; }
+  .summary-check, .summary-check path { animation: none; stroke-dashoffset: 0; }
+}

@@ -1,0 +1,30 @@
+{
+  "_help": "每种 agent 写一次，不用按席位改。name 是他入座时报的 agent 名（claude、dsh、codex、cursor、antigravity）。{uuid} 换成他报的 uuid，{text} 换成点到他的那句话，已经带上引号。reply 为 stdout 时，命令的输出会作为他的回复贴回房间。",
+  "agents": [
+    {
+      "name": "claude",
+      "command": "./scripts/claude-code.sh {uuid} {text}",
+      "reply": "stdout"
+    },
+    {
+      "name": "dsh",
+      "command": "dsh-agent resume {uuid} {text}",
+      "reply": "none"
+    },
+    {
+      "name": "codex",
+      "command": "./scripts/codex-wake.sh {uuid} {text}",
+      "reply": "stdout"
+    },
+    {
+      "name": "cursor",
+      "command": "cursor-agent --resume {uuid} --model grok-4.7-low-fast --approve-mcps --trust -p {text}",
+      "reply": "stdout"
+    },
+    {
+      "name": "antigravity",
+      "command": "agy --conversation {uuid} --model gemini-3.8-flash-low --settings '{\"permissions\":{\"allow\":[\"mcp(bench/*)\"]}}' -p {text}",
+      "reply": "stdout"
+    }
+  ]
+}
